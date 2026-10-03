@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Nothing in My Way
 
 Situs autobiografi bilingual yang mendokumentasikan perjalanan hidup, refleksi pribadi, dan momen-momen yang membentuk diri. Pengunjung dapat membaca cerita dalam Bahasa Indonesia atau English, sementara pemilik mengelola konten melalui studio admin privat.
@@ -68,3 +69,6 @@ npm run lint
 ## Keamanan
 
 Jangan unggah file `.env.local` atau kredensial Supabase ke repositori. Batasi akses tulis melalui autentikasi dan kebijakan Row Level Security yang sesuai dengan akun pemilik.
+=======
+# life_story
+>>>>>>> origin/main
