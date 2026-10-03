@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nothing in My Way
 
-## Getting Started
+Situs autobiografi bilingual yang mendokumentasikan perjalanan hidup, refleksi pribadi, dan momen-momen yang membentuk diri. Pengunjung dapat membaca cerita dalam Bahasa Indonesia atau English, sementara pemilik mengelola konten melalui studio admin privat.
 
-First, run the development server:
+**Deskripsi singkat GitHub:** Situs autobiografi bilingual dengan jurnal perjalanan dan studio admin privat berbasis Next.js dan Supabase.
+
+## Fitur
+
+- Beranda autobiografi dengan pilihan Bahasa Indonesia dan English.
+- Timeline perjalanan hidup, rencana, jurnal, galeri foto, dan informasi kontak.
+- Daftar jurnal serta halaman detail dengan checkpoint perjalanan.
+- Pergantian foto interaktif pada hero dan galeri foto.
+- Studio admin privat untuk mengelola teks beranda, jurnal, rencana, dan galeri.
+- Autentikasi admin dan penyimpanan konten menggunakan Supabase.
+- Data contoh lokal sebagai fallback ketika konfigurasi Supabase belum tersedia.
+- Tata letak responsif untuk desktop dan perangkat seluler.
+
+## Teknologi
+
+- Next.js 16 dengan App Router
+- React 19 dan TypeScript
+- Supabase Auth dan PostgreSQL
+- CSS Modules dan CSS responsif
+
+## Menjalankan Secara Lokal
+
+1. Pasang dependensi:
+
+   ```bash
+   npm install
+   ```
+
+2. Buat file `.env.local` dan isi kredensial Supabase:
+
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   ```
+
+3. Jalankan `supabase-schema.sql` melalui Supabase SQL Editor. Sebelum menjalankannya, sesuaikan alamat email pemilik pada kebijakan Row Level Security di file tersebut.
+
+4. Jalankan server pengembangan:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Buka [http://localhost:3000](http://localhost:3000).
+
+Tanpa kredensial Supabase, situs publik menggunakan data contoh lokal. Fitur admin dan autentikasi memerlukan konfigurasi Supabase.
+
+## Perintah
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struktur Konten
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Konten dan fallback bawaan berada di `app/data/`.
+- Halaman publik berada di `app/` dan komponennya berada di `app/components/`.
+- Halaman pengelolaan konten berada di `app/admin/`.
+- Skema tabel dan kebijakan akses Supabase berada di `supabase-schema.sql`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Keamanan
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Jangan unggah file `.env.local` atau kredensial Supabase ke repositori. Batasi akses tulis melalui autentikasi dan kebijakan Row Level Security yang sesuai dengan akun pemilik.
